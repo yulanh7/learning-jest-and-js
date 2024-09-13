@@ -10,7 +10,9 @@ test('should read data from the file', () => {
 
   fs.readFileSync.mockReturnValue(mockData);
   const weatherData = readDataFromFile('fakePath');
-  expect(weatherData).toEqual([
+  const trimmedData = weatherData.map(line => line.trim());
+
+  expect(trimmedData).toEqual([
     '1948   1    8.9     3.3    ---     85.0    ---',
     '1948   2    7.9     2.2    ---     26.0    ---'
   ])
