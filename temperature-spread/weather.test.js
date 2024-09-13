@@ -1,4 +1,4 @@
-const { readDataFromFile, parseHeaderAndData } = require("./weather");
+const { readDataFromFile, parseHeaderAndData, findSmallestSpread } = require("./weather");
 const fs = require('fs');
 
 jest.mock('fs');
@@ -29,4 +29,16 @@ test('should parse data into objects with correct headers', () => {
     { yyyy: 1948, mm: 1, tmax: 8.9, tmin: 3.3, af: null, rain: 85.0, sun: null },
     { yyyy: 1948, mm: 2, tmax: 7.9, tmin: 2.2, af: null, rain: 26.0, sun: null }
   ])
+})
+
+
+test('should find the year and month with the smallest weather spread', () => {
+  const weatherData = [
+    { yyyy: 1948, mm: 1, tmax: 8.9, tmin: 3.3 },
+    { yyyy: 1948, mm: 2, tmax: 7.9, tmin: 2.2 },
+    { yyyy: 1948, mm: 3, tmax: 14.2, tmin: 3.8 }
+  ]
+
+  const result = findSmallestSpread(weatherData);
+  expect(result).toEqual({ yyyy: 1948, mm: 2, tmax: 7.9, tmin: 2.2 })
 })
