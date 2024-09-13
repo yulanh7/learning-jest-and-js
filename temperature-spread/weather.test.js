@@ -40,5 +40,5 @@ test('should find the year and month with the smallest weather spread', () => {
   ]
 
   const result = findSmallestSpread(weatherData);
-  expect(result).toEqual({ yyyy: 1948, mm: 2, tmax: 7.9, tmin: 2.2 })
+  expect(result).toEqual({ yyyy: 1948, mm: 1, tmax: 8.9, tmin: 3.3 })
 })

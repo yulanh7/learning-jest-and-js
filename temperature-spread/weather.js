@@ -26,6 +26,13 @@ function parseHeaderAndData(lines) {
   return parsedData
 }
 
+function findSmallestSpread(data) {
+  return data.reduce((smallest, current) => {
+    const currentSpread = current.tmax - current.tmin;
+    const smallestSpread = smallest.tmax - smallest.tmin;
+    return currentSpread < smallestSpread ? current : smallest;
+  });
+}
 
 
-module.exports = { readDataFromFile, parseHeaderAndData }
+module.exports = { readDataFromFile, parseHeaderAndData, findSmallestSpread }
