@@ -34,5 +34,11 @@ function findSmallestSpread(data) {
   });
 }
 
+function processTemperatureData(filePath) {
+  const rawData = readDataFromFile(filePath);
+  const parsedData = parseHeaderAndData(rawData);
+  return findSmallestSpread(parsedData)
+}
+
 
 module.exports = { readDataFromFile, parseHeaderAndData, findSmallestSpread }
