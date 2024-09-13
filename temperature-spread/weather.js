@@ -41,4 +41,4 @@ function processTemperatureData(filePath) {
 }
 
 
-module.exports = { readDataFromFile, parseHeaderAndData, findSmallestSpread }
+module.exports = { readDataFromFile, parseHeaderAndData, findSmallestSpread, processTemperatureData }
